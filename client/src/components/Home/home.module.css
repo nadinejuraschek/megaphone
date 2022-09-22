@@ -16,22 +16,22 @@
 }
 
 .link {
-  background-color: #40779e;
+  background-color: var(--primary);
   border: none;
-  color: #ffffff;
+  color: var(--white);
   font-size: 2rem;
   margin-top: 4rem;
   padding: 1rem 2rem;
 }
 
 .link:hover {
-  color: #ffffff;
+  color: var(--white);
 }
 
 @media only screen and (min-width: 900px) {
   .landing {
     background-image:
-      linear-gradient(#ffffff70, #ffffff70),
+      linear-gradient(var(--white__opaque), var(--white__opaque)),
       url(../../images/phone_bg.png);
     background-size: cover;
     background-position: center right;

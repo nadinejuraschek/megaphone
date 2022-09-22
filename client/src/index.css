@@ -1,6 +1,22 @@
+:root {
+  --alert: rgb(194, 0, 0, 0.6);
+  --alert__light: rgb(255, 130, 130, 0.6);
+  --primary: #40779e;
+  --primary__light: rgba(95, 175, 201, 1);
+  --primary__dark: rgba(44, 83, 131, 1);
+  --primary__dark__opaque: rgba(44, 83, 131, 0.5);
+  --secondary: #8d3363;
+  --shadow: rgba(44, 83, 131, 0.12);
+  --text: #454545;
+  --text__light: #979797;
+  --white: #ffffff;
+  --white__bg: #e6ecf0;
+  --white__opaque: #ffffff70;
+}
+
 html {
   box-sizing: border-box;
-  color: #454545;
+  color: var(--text);
   font-family: sans-serif;
   font-size: 10px;
 }
@@ -71,9 +87,9 @@ ol, ul {
 }
 
 button {
-  background-color: #40779e;
+  background-color: var(--primary);
   border: none;
-  color: #ffffff;
+  color: var(--white);
   margin-top: 2rem;
   padding: 1rem 2rem;
 
