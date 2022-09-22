@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { signout } from '../../store/actions/auth';
 
 // COMPONENTS
 import Icon from '../../components/Icon';
+import { Link } from 'react-router-dom';
 import MenuBtn from './MenuBtn';
 import Profile from '../../components/Profile';
-
-// STYLES
-import styles from './navbar.module.css';
-
+import { connect } from 'react-redux';
 // ICONS
 import megaphone from '../../icons/megaphone.svg';
+import { signout } from '../../store/actions/auth';
+// STYLES
+import styles from './navbar.module.css';
 
 const MobileNav = ({ currentUser }) => {
   const [ openNav, setOpenNav ] = useState(false);
@@ -43,9 +41,9 @@ const MobileNav = ({ currentUser }) => {
 };
 
 function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser,
-    };
+  return {
+    currentUser: state.currentUser,
+  };
 };
 
 export default connect(mapStateToProps, { signout })(MobileNav);

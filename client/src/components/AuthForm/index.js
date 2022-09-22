@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-
-// STYLES
 import styles from './authform.module.css';
+import { useState } from 'react';
 
 const AuthForm = ({ heading, buttonText, register, onAuth, errors, history, removeError }) => {
   const [ email, setEmail ] = useState('');
@@ -17,13 +15,15 @@ const AuthForm = ({ heading, buttonText, register, onAuth, errors, history, remo
       password: password,
       profileImageUrl: profileImageUrl,
     };
-    // console.log(newUser);
+
     const authType = register ? "register" : "signin";
     onAuth(authType, newUser)
       .then(() => {
+        console.log('%c [AuthForm] User has been logged in.', 'background: honeydew; color: green;');
         history.push('/');
       })
       .catch(() => {
+        console.log('%c [AuthForm] Could not log in user.', 'background: pink; color: red;');
         return;
       });
   };
@@ -37,9 +37,11 @@ const AuthForm = ({ heading, buttonText, register, onAuth, errors, history, remo
     };
     onAuth('signin', testUser)
       .then(() => {
+        console.log('%c [AuthForm] User has been logged in.', 'background: honeydew; color: green;');
         history.push('/');
       })
       .catch(() => {
+        console.log('%c [AuthForm] Could not log in user.', 'background: pink; color: red;');
         return;
       });
   };

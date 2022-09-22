@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
+
 import { connect } from 'react-redux';
 
 export default function withAuth(ComponentToBeRendered) {
   const Authenticate = props => {
+    const { history, isAuthenticated } = props;
     useEffect(() => {
-      if (props.isAuthenticated === false) {
-        props.history.push('/signin');
+      if (isAuthenticated === false) {
+        history.push('/signin');
       };
-    }, [ props.isAuthenticated ]);
+    }, [ history, isAuthenticated ]);
 
     return (
       <ComponentToBeRendered {...props} />

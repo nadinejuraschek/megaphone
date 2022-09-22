@@ -1,15 +1,8 @@
-import React from 'react';
+import Icon from '../Icon';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-// STYLES
-import styles from './timeline.module.css';
-
-// COMPONENTS
-import Icon from '../Icon';
-
-// ICONS
 import plus from '../../icons/plus.svg';
+import styles from './timeline.module.css';
 
 const NewMessage = ({ currentUser }) => {
   return (
@@ -24,9 +17,9 @@ const NewMessage = ({ currentUser }) => {
 };
 
 function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser,
-    };
+  return {
+    currentUser: state.currentUser,
+  };
 };
 
 export default connect(mapStateToProps)(NewMessage);

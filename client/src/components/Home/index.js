@@ -1,11 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
-// STYLES
-import styles from './home.module.css';
-
-// COMPONENTS
 import MessageTimeline from '../MessageTimeline';
+import React from 'react';
+import styles from './home.module.css';
 
 const Home = ({ currentUser }) => {
   if ( !currentUser.isAuthenticated ) {

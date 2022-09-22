@@ -1,14 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { configureStore } from '../store';
 import { setAuthorizationToken, setCurrentUser } from '../store/actions/auth';
-import jwtDecode from 'jwt-decode';
 
-// COMPONENTS
-import Navbar from './Navbar';
-import Main from './Main';
 import Footer from './Footer';
+import Main from './Main';
+import Navbar from './Navbar';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { configureStore } from '../store';
+import jwtDecode from 'jwt-decode';
 
 const store = configureStore();
 

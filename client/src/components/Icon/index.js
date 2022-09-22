@@ -1,6 +1,3 @@
-import React from 'react';
-
-// STYLES
 import styles from './icon.module.css';
 
 const Icon = ({ icon, iconName }) => {

@@ -1,10 +1,5 @@
-import React from 'react';
-
-// STYLES
-import styles from './profile.module.css';
-
-// IMAGES
 import defaultProfile from '../../images/default-profile.png';
+import styles from './profile.module.css';
 
 const Profile = ({ profileImageUrl, username, height, width }) => {
   return (

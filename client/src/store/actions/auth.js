@@ -1,6 +1,7 @@
-import { apiCall, setTokenHeader } from '../../services/api';
-import { SET_CURRENT_USER } from '../actionTypes';
 import { addError, removeError } from './errors';
+import { apiCall, setTokenHeader } from '../../services/api';
+
+import { SET_CURRENT_USER } from '../actionTypes';
 
 export function setCurrentUser(user) {
   return {
@@ -18,7 +19,7 @@ export function signout() {
     localStorage.clear();
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
-    console.log("User is signed out.");
+    console.log("%c [auth] User is signed out.", 'background: honeydew; color: green;');
   };
 };
 

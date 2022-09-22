@@ -1,15 +1,8 @@
-import React from 'react';
-import Moment from 'react-moment';
-
-// STYLES
-import styles from './message.module.css';
-
-// ICONS
-import deleteIcon from '../../icons/delete.svg';
-
-// COMPONENTS
-import Profile from '../../components/Profile';
 import Icon from '../../components/Icon';
+import Moment from 'react-moment';
+import Profile from '../../components/Profile';
+import deleteIcon from '../../icons/delete.svg';
+import styles from './message.module.css';
 
 const MessageItem = ({ date, profileImageUrl, text, username, removeMessage, isCorrectUser }) => {
   return (

@@ -42,5 +42,5 @@ app.use(function(req, res, next) {
 app.use(errorHandler);
 
 app.listen(process.env.PORT, function() {
-    console.log(`Server is listening on PORT ${process.env.PORT}.`);
+  console.log(`Server is listening on PORT ${process.env.PORT}.`);
 });

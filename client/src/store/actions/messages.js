@@ -1,6 +1,7 @@
-import { apiCall } from '../../services/api';
-import { addError } from './errors';
 import { LOAD_MESSAGES, REMOVE_MESSAGES } from '../actionTypes';
+
+import { addError } from './errors';
+import { apiCall } from '../../services/api';
 
 export const loadMessages = messages => ({
   type: LOAD_MESSAGES,
@@ -11,7 +12,6 @@ export const fetchMessages = () => {
   return dispatch => {
     return apiCall('get', '/api/messages')
       .then(res => {
-        console.log(res);
         dispatch(loadMessages(res));
       })
       .catch(err => {

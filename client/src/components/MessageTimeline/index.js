@@ -1,12 +1,7 @@
-import React from 'react';
-
-// STYLES
-import styles from './timeline.module.css';
-
-// COMPONENTS
 import MessageList from '../../containers/MessageList';
-import UserAside from '../UserAside';
 import NewMessage from './NewMessage';
+import UserAside from '../UserAside';
+import styles from './timeline.module.css';
 
 const MessageTimeline = ({ profileImageUrl, username }) => {
   return (

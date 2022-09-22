@@ -1,17 +1,13 @@
-import React from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { authUser } from '../../store/actions/auth';
-import { removeError } from '../../store/actions/errors';
-import withAuth from '../../hocs/withAuth';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
-// COMPONENTS
-import Home from '../../components/Home';
 import AuthForm from '../../components/AuthForm';
+import Home from '../../components/Home';
 import MessageForm from '../MessageForm';
-
-// STYLES
+import { authUser } from '../../store/actions/auth';
+import { connect } from 'react-redux';
+import { removeError } from '../../store/actions/errors';
 import styles from './main.module.css';
+import withAuth from '../../hocs/withAuth';
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
