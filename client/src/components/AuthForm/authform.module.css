@@ -18,9 +18,9 @@ label {
 }
 
 .authInput {
-    background-color: #ffffff;
+    background-color: var(--white);
     border: none;
-    border: 1px solid rgba(44,83,131,0.5);
+    border: 1px solid var(--primary__dark__opaque);
 
     margin-bottom: 3rem;
     padding: 1rem;
@@ -30,8 +30,8 @@ label {
 }
 
 .alert {
-    background-color: rgb(255, 130, 130, 0.6);
-    border: 1px solid rgb(194, 0, 0, 0.6);
+    background-color: var(--alert__light);
+    border: 1px solid var(--alert);
     font-size: 1.6rem;
     padding: 1.5rem;
     margin-top: -2.5rem;
@@ -50,5 +50,5 @@ label {
 }
 
 .guest:hover {
-    color: rgba(44,83,131,0.5);
+    color: var(--primary__dark__opaque);
 }

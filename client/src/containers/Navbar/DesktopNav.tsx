@@ -1,19 +1,18 @@
-import React from 'react';
+import { ICurrentUser } from '../../types';
+import Icon from '../../components/Icon';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import megaphone from '../../icons/megaphone.svg';
 import { signout } from '../../store/actions/auth';
-
-// COMPONENTS
-import Icon from '../../components/Icon';
-
-// STYLES
 import styles from './navbar.module.css';
 
-// ICONS
-import megaphone from '../../icons/megaphone.svg';
+export interface IDesktopNav {
+  currentUser: ICurrentUser;
+  signout: () => void;
+}
 
-const DesktopNav = ({ currentUser, signout }) => {
-  const handleSignout = (event) => {
+const DesktopNav = ({ currentUser, signout }: IDesktopNav): JSX.Element => {
+  const handleSignout = event => {
     event.preventDefault();
     signout();
   };
@@ -21,10 +20,9 @@ const DesktopNav = ({ currentUser, signout }) => {
   return (
     <nav>
       <Link to='/' className={styles.navbarBrand}>
-        <Icon icon={megaphone} iconName="Logo" />
+        <Icon icon={megaphone} iconName='Logo' />
       </Link>
-      { currentUser.isAuthenticated
-        ?
+      {currentUser.isAuthenticated ? (
         <ul className={styles.navList}>
           <li>
             <Link to={`/users/${currentUser.user.id}/messages/new`}>
@@ -32,29 +30,27 @@ const DesktopNav = ({ currentUser, signout }) => {
             </Link>
           </li>
           <li>
-            <div onClick={handleSignout}>
-              Sign out
-            </div>
+            <div onClick={handleSignout}>Sign out</div>
           </li>
         </ul>
-        :
+      ) : (
         <ul className={styles.navList}>
           <li>
-              <Link to="/register">Register</Link>
+            <Link to='/register'>Register</Link>
           </li>
           <li>
-              <Link to="/signin">Sign In</Link>
+            <Link to='/signin'>Sign In</Link>
           </li>
         </ul>
-      }
+      )}
     </nav>
   );
 };
 
 function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser,
-    };
-};
+  return {
+    currentUser: state.currentUser,
+  };
+}
 
 export default connect(mapStateToProps, { signout })(DesktopNav);

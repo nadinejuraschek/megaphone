@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true,
     useCreateIndex: true,
 }, function() {
-    console.log("DB connected successfully.");
+    console.log('\033[32m', "DB connected successfully.");
 });
 
 module.exports.User = require("./user");

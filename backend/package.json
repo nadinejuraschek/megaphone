@@ -15,18 +15,18 @@
     "type": "git",
     "url": "git+https://github.com/nadinejuraschek/twitter-clone.git"
   },
-  "author": "Nadine Juraschek",
+  "author": "Nadine Pesso",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nadinejuraschek/twitter-clone/issues"
   },
   "homepage": "https://github.com/nadinejuraschek/twitter-clone#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "concurrently": "^5.2.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.5",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^7.4.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "http-proxy-middleware": "^2.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.25"
   }

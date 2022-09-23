@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function setTokenHeader(token) {
+export const setTokenHeader = (token: string): void => {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   } else {
@@ -8,7 +8,7 @@ export function setTokenHeader(token) {
   };
 };
 
-export function apiCall(method, path, data) {
+export const apiCall = (method, path, data): Promise<void> => {
   return new Promise((resolve, reject) => {
     return axios[method.toLowerCase()](path, data)
       .then(res => {
