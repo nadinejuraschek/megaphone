@@ -15,15 +15,15 @@ if (localStorage.jwtToken) {
   try {
     // prevent manual tempering with jwtToken key in localStorage
     store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
-  } catch(err) {
+  } catch (err) {
     store.dispatch(setCurrentUser({}));
-  };
-};
+  }
+}
 
-const App = () => (
+const App = (): JSX.Element => (
   <Provider store={store}>
     <Router>
-      <div className="onboarding">
+      <div className='onboarding'>
         <Navbar />
         <Main />
         <Footer />

@@ -1,10 +1,14 @@
+import { ICurrentUser } from '../../types';
 import { Link } from 'react-router-dom';
 import MessageTimeline from '../MessageTimeline';
-import React from 'react';
 import styles from './home.module.css';
 
-const Home = ({ currentUser }) => {
-  if ( !currentUser.isAuthenticated ) {
+export interface IHome {
+  currentUser: ICurrentUser;
+}
+
+const Home = ({ currentUser }: IHome): JSX.Element => {
+  if (!currentUser.isAuthenticated) {
     return (
       <div className={styles.landing}>
         <h1>What's Happening?</h1>
@@ -23,7 +27,7 @@ const Home = ({ currentUser }) => {
         username={currentUser.user.username}
       />
     );
-  };
+  }
 };
 
 export default Home;

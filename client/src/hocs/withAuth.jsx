@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react';
-
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
-export default function withAuth(ComponentToBeRendered) {
+const withAuth = ComponentToBeRendered => {
   const Authenticate = props => {
     const { history, isAuthenticated } = props;
     useEffect(() => {
       if (isAuthenticated === false) {
         history.push('/signin');
-      };
-    }, [ history, isAuthenticated ]);
+      }
+    }, [history, isAuthenticated]);
 
-    return (
-      <ComponentToBeRendered {...props} />
-    );
+    return <ComponentToBeRendered {...props} />;
   };
 
-  function mapStateToProps(state) {
+  const mapStateToProps = state => {
     return {
       isAuthenticated: state.currentUser.isAuthenticated,
     };
@@ -24,3 +21,5 @@ export default function withAuth(ComponentToBeRendered) {
 
   return connect(mapStateToProps)(Authenticate);
 };
+
+export default withAuth;

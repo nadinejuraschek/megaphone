@@ -1,37 +1,41 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { fetchMessages, removeMessage } from '../../store/actions/messages';
 
-// STYLES
+import { Component } from 'react';
+import MessageItem from '../../components/MessageItem';
+import { connect } from 'react-redux';
 import styles from './list.module.css';
 
-// COMPONENTS
-import MessageItem from '../../components/MessageItem';
+/* const MessageList = ({
+  messages,
+  removeMessage,
+  currentUser,
+}: IMessageList): JSX.Element => {
+  useEffect(() => {
+    fetchMessages();
+  }, [messages]);
 
-// const MessageList = ({ messages, removeMessage, currentUser }) => {
-//   useEffect(() => {
-//     fetchMessages();
-//   }, [messages]);
+  const messageList = messages.map(
+    (message): JSX.Element => (
+      <MessageItem
+        key={message._id}
+        date={message.createdAt}
+        text={message.text}
+        username={message.user.username}
+        profileImageUrl={message.user.profileImageUrl}
+        removeMessage={() => removeMessage(message.user._id, message._id)}
+        isCorrectUser={currentUser.user.id === message.user._id}
+      />
+    )
+  );
 
-//   let messageList = messages.map(message => (
-//     <MessageItem
-//       key={message._id}
-//       date={message.createdAt}
-//       text={message.text}
-//       username={message.user.username}
-//       profileImageUrl={message.user.profileImageUrl}
-//       removeMessage={removeMessage.bind(this, message.user._id, message._id)}
-//       isCorrectUser={currentUser === message.user._id}
-//     />
-//   ));
-
-//   return <ul>{messageList}</ul>;
-// };
+  return <ul className={styles.list}>{messageList}</ul>;
+}; */
 
 class MessageList extends Component {
   componentDidMount() {
     this.props.fetchMessages();
   }
+
   render() {
     const { messages, removeMessage, currentUser } = this.props;
     let messageList = messages
@@ -43,11 +47,7 @@ class MessageList extends Component {
           text={message.text}
           username={message.user.username}
           profileImageUrl={message.user.profileImageUrl}
-          removeMessage={removeMessage.bind(
-            this,
-            message.user._id,
-            message._id
-          )}
+          removeMessage={() => removeMessage(message.user._id, message._id)}
           isCorrectUser={currentUser === message.user._id}
         />
       ));

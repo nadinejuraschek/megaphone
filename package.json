@@ -4,7 +4,6 @@
   "description": "A Twitter-like full stack node.js application. Built with React, Redux, and Node.js.",
   "main": "backend/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd backend && npm run dev"
   },
   "repository": {

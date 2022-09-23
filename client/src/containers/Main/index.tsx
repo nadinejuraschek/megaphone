@@ -1,3 +1,4 @@
+import { Errors, ICurrentUser } from '../../types';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import AuthForm from '../../components/AuthForm';
@@ -9,20 +10,33 @@ import { removeError } from '../../store/actions/errors';
 import styles from './main.module.css';
 import withAuth from '../../hocs/withAuth';
 
-const Main = props => {
-  const { authUser, errors, removeError, currentUser } = props;
+export interface IMain {
+  authUser: () => void;
+  currentUser: ICurrentUser;
+  errors: Errors;
+  removeError: () => void;
+}
 
-  return (
-    <main className={styles.main}>
-      <Switch>
-        <Route exact path='/' render={props => <Home currentUser={currentUser} {...props} />} />
+const Main = ({
+  authUser,
+  currentUser,
+  errors,
+  removeError,
+}: IMain): JSX.Element => (
+  <main className={styles.main}>
+    <Switch>
+      <Route
+        exact
+        path='/'
+        render={props => <Home currentUser={currentUser} {...props} />}
+      />
 
-        <Route
-          exact
-          path='/signin'
-          render={props => {
-            return (
-              <div className={styles.container}>
+      <Route
+        exact
+        path='/signin'
+        render={props => {
+          return (
+            <div className={styles.container}>
               <AuthForm
                 removeError={removeError}
                 errors={errors}
@@ -31,16 +45,16 @@ const Main = props => {
                 heading='Welcome Back!'
                 {...props}
               />
-              </div>
-            );
-          }}
-        />
-        <Route
-          exact
-          path='/register'
-          render={props => {
-            return (
-              <div className={styles.container}>
+            </div>
+          );
+        }}
+      />
+      <Route
+        exact
+        path='/register'
+        render={props => {
+          return (
+            <div className={styles.container}>
               <AuthForm
                 register
                 removeError={removeError}
@@ -50,19 +64,18 @@ const Main = props => {
                 heading='Join Megaphone today.'
                 {...props}
               />
-              </div>
-            );
-          }}
-        />
-        <Route
-          exact
-          path='/users/:id/messages/new'
-          component={withAuth(MessageForm)}
-        />
-      </Switch>
-    </main>
-  );
-};
+            </div>
+          );
+        }}
+      />
+      <Route
+        exact
+        path='/users/:id/messages/new'
+        component={withAuth(MessageForm)}
+      />
+    </Switch>
+  </main>
+);
 
 function mapStateToProps(state) {
   return {
@@ -71,4 +84,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, { authUser, removeError })(Main));
+export default withRouter(
+  connect(mapStateToProps, { authUser, removeError })(Main)
+);
