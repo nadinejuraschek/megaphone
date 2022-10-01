@@ -1,0 +1,32 @@
+.footer {
+  height: 3rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+
+  background-color: var(-white__bg);
+  padding: 0 2.4rem;
+}
+
+.footer a {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.attribution {
+  display: none;
+}
+
+@media only screen and (min-width: 900px) {
+  .attribution {
+    display: block;
+  }
+}

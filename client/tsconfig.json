@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
-  },
-  "include": ["src/components", "./global.d.ts"]
-}
