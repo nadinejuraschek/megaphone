@@ -10,7 +10,7 @@ const Home = ({ currentUser }: IHome): JSX.Element => {
         <h1>What's Happening?</h1>
         <h3>New to Megaphone?</h3>
         <div>
-          <Link className={styles.link} to='/register'>
+          <Link className={`button ${styles.link}`} to='/register'>
             Sign Up Here
           </Link>
         </div>

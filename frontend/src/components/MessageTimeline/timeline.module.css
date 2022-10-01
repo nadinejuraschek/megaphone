@@ -7,16 +7,23 @@
   border: none;
   border-radius: 50%;
   box-shadow: 0 2px 2px var(--shadow);
+  transition: ease-in background-image 0.4s;
+
   height: 5rem;
   width: 5rem;
 
   position: absolute;
-  bottom: 3rem;
+  bottom: 4rem;
   right: 2.4rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.newMessageBtn:hover {
+  background-image: linear-gradient(135deg, var(--secondary__light), var(--secondary));
+  cursor: pointer;
 }
 
 .icon {

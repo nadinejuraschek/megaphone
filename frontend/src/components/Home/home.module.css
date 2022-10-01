@@ -16,8 +16,6 @@
 }
 
 .link {
-  background-color: var(--primary);
-  border: none;
   color: var(--white);
   font-size: 2rem;
   margin-top: 4rem;

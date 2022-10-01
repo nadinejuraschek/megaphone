@@ -27,6 +27,13 @@
 }
 
 .delete {
+  border-radius: 100%;
+  padding: 10px;
+  transition: ease-in background-color 0.3s;
+}
+
+.delete:hover {
+  background-color: var(--secondary__light__opaque);
   cursor: pointer;
 }
 

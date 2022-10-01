@@ -18,6 +18,10 @@ nav {
     color: var(--white);
 }
 
+.menuBtn:hover {
+    cursor: pointer;
+}
+
 .navbarBrand {
     height: 6rem;
     width: 6rem;
@@ -32,6 +36,16 @@ nav {
     margin-bottom: 0;
 }
 
+.navList li {
+    padding: 8px;
+    transition: ease-in color 0.3s;
+}
+
+.navList li:hover {
+    color: var(--secondary__light);
+    cursor: pointer;
+}
+
 .navList li:not(:last-child) {
     margin-right: 2rem;
 }
@@ -42,7 +56,6 @@ nav {
     border-left: 1px solid var(--primary__dark);
     box-shadow: 0 2px 2px var(--shadow);
     color: var(--text);
-    padding-right: 2.4rem;
     width: 50%;
 
     position: absolute;
@@ -54,8 +67,23 @@ nav {
 }
 
 .liDropdown {
-    cursor: pointer;
+    background-color: transparent;
     font-size: 1.75rem;
+    font-weight: normal;
+    padding: 1rem 3.4rem 1rem 1rem;
+    transition: ease-in background-color 0.3s;
+}
+
+.liDropdown a {
+    font-weight: normal;
+}
+
+.liDropdown:hover {
+    background-color: var(--secondary__light__opaque);
+    cursor: pointer;
     font-weight: bold;
-    padding: 1rem;
+}
+
+.liDropdown:hover a {
+    font-weight: bold;
 }

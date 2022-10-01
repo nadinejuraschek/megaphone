@@ -6,6 +6,8 @@
   --primary__dark: rgba(44, 83, 131, 1);
   --primary__dark__opaque: rgba(44, 83, 131, 0.5);
   --secondary: #8d3363;
+  --secondary__light: #ff85c6;
+  --secondary__light__opaque: #ff85c640;
   --shadow: rgba(44, 83, 131, 0.12);
   --text: #454545;
   --text__light: #979797;
@@ -79,7 +81,6 @@ a {
 a:hover {
   color: currentColor;
   cursor: pointer;
-  font-weight: bold;
   text-decoration: none;
 }
 
@@ -87,7 +88,7 @@ ol, ul {
   list-style: none;
 }
 
-button {
+button, .button {
   background-color: var(--primary);
   border: none;
   color: var(--white);
@@ -99,7 +100,8 @@ button {
   transition: all 0.4s;
 }
 
-button:hover {
+button:hover, .button:hover {
+  background-color: var(--secondary);
   cursor: pointer;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;

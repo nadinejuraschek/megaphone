@@ -50,5 +50,5 @@ label {
 }
 
 .guest:hover {
-    color: var(--primary__dark__opaque);
+    color: var(--secondary);
 }
