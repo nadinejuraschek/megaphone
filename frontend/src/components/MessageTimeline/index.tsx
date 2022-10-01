@@ -1,5 +1,5 @@
 import { IMessageTimeline } from './types';
-import MessageList from '../../containers/MessageList/index.js';
+import MessageList from '../../containers/MessageList';
 import NewMessage from './NewMessage';
 import UserAside from '../UserAside';
 import styles from './timeline.module.css';

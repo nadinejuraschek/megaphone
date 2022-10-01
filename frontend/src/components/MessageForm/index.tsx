@@ -3,22 +3,26 @@ import { FormEvent, useState } from 'react';
 import { Errors } from '../../types';
 import { IMessageForm } from './types';
 import { connect } from 'react-redux';
+import logger from '../../logger';
 import { postNewMessage } from '../../store/actions/messages';
 import { removeError } from '../../store/actions/errors';
 import styles from './messageform.module.css';
+import { useHistory } from 'react-router-dom';
 
 const MessageForm = ({
   postNewMessage,
   errors,
-  history,
   removeError,
 }: IMessageForm): JSX.Element => {
   const [message, setMessage] = useState('');
+
+  const history = useHistory();
 
   const handleNewMessage = (event: FormEvent): void => {
     event.preventDefault();
     postNewMessage(message);
     setMessage('');
+    logger('MessageForm').info('New message was posted successfully.');
     history.push('/');
   };
 

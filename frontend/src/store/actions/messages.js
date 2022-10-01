@@ -2,6 +2,7 @@ import { LOAD_MESSAGES, REMOVE_MESSAGES } from '../actionTypes';
 
 import { addError } from './errors';
 import { apiCall } from '../../services/api';
+import logger from '../../logger';
 
 export const loadMessages = messages => ({
   type: LOAD_MESSAGES,
@@ -41,6 +42,7 @@ export const removeMessage = (user_id, message_id) => {
       .then(() => dispatch(remove(message_id)))
       .catch(err => {
         dispatch(addError(err.message));
+        logger('Actions Auth').error('Could not remove message.');
       });
   };
 };

@@ -2,6 +2,7 @@ import { addError, removeError } from './errors';
 import { apiCall, setTokenHeader } from '../../services/api';
 
 import { SET_CURRENT_USER } from '../actionTypes';
+import logger from '../../logger';
 
 export function setCurrentUser(user) {
   return {
@@ -19,7 +20,7 @@ export function signout() {
     localStorage.clear();
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
-    console.log("%c [auth] User is signed out.", 'background: honeydew; color: green;');
+    logger('Actions Auth').info('User is signed out.');
   };
 };
 
@@ -36,6 +37,7 @@ export function authUser(type, userData) {
         })
         .catch(err => {
           dispatch(addError(err.message));
+          logger('Actions Auth').error('Could not authenticate user.');
           reject();
         });
     });

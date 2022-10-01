@@ -3,3 +3,11 @@
   row-gap: 1rem;
   width: 100%;
 }
+
+.loadingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}

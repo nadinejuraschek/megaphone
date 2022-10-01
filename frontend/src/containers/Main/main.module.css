@@ -1,5 +1,5 @@
 .main {
-  background-color: var(-white__bg);
+  background-color: var(--white__bg);
   margin-top: 8rem;
   min-height: calc(100vh - 11rem);
 }

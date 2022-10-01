@@ -1,13 +1,14 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { IAuthForm } from './types';
+import logger from '../../logger';
 import styles from './authform.module.css';
+import { useHistory } from 'react-router-dom';
 
 const AuthForm = ({
   buttonText,
   errors,
   heading,
-  history,
   onAuth,
   register,
   removeError,
@@ -18,6 +19,8 @@ const AuthForm = ({
     profileImageUrl: '',
     username: '',
   });
+
+  const history = useHistory();
 
   const authType = register ? 'register' : 'signin';
 
@@ -30,17 +33,11 @@ const AuthForm = ({
 
     onAuth(authType, newUser)
       .then(() => {
-        console.log(
-          '%c [AuthForm] User has been logged in.',
-          'background: honeydew; color: green;'
-        );
+        logger('AuthForm').info('User has been logged in.');
         history.push('/');
       })
       .catch(() => {
-        console.log(
-          '%c [AuthForm] Could not log in user.',
-          'background: pink; color: red;'
-        );
+        logger('AuthForm').error('Could not log in user.');
         return;
       });
   };
@@ -54,17 +51,11 @@ const AuthForm = ({
     };
     onAuth('signin', testUser)
       .then(() => {
-        console.log(
-          '%c [AuthForm] User has been logged in.',
-          'background: honeydew; color: green;'
-        );
+        logger('AuthForm').info('Test user has been logged in.');
         history.push('/');
       })
       .catch(() => {
-        console.log(
-          '%c [AuthForm] Could not log in user.',
-          'background: pink; color: red;'
-        );
+        logger('AuthForm').error('Could not log in test user.');
         return;
       });
   };
@@ -88,6 +79,7 @@ const AuthForm = ({
         {errors.message && <div className={styles.alert}>{errors.message}</div>}
         <label htmlFor='email'>E-Mail:</label>
         <input
+          autoComplete='off'
           className={styles.authInput}
           id='email'
           name='email'
@@ -98,6 +90,7 @@ const AuthForm = ({
           <>
             <label htmlFor='username'>Username:</label>
             <input
+              autoComplete='off'
               className={styles.authInput}
               id='username'
               name='username'
@@ -106,6 +99,7 @@ const AuthForm = ({
             />
             <label htmlFor='image-url'>Image Url:</label>
             <input
+              autoComplete='off'
               className={styles.authInput}
               id='image-url'
               name='profileImageUrl'
@@ -116,6 +110,7 @@ const AuthForm = ({
         )}
         <label htmlFor='password'>Password:</label>
         <input
+          autoComplete='off'
           className={styles.authInput}
           id='password'
           name='password'

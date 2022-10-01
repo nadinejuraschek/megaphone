@@ -1,10 +1,10 @@
 import { Errors, ICurrentUser } from '../../types';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AuthForm from '../../components/AuthForm';
 import Home from '../../components/Home';
 import { IMain } from './types';
-import MessageForm from '../MessageForm';
+import MessageForm from '../../components/MessageForm';
 import { authUser } from '../../store/actions/auth';
 import { connect } from 'react-redux';
 import { removeError } from '../../store/actions/errors';
@@ -79,6 +79,4 @@ function mapStateToProps(state: { currentUser: ICurrentUser; errors: Errors }) {
   };
 }
 
-export default withRouter(
-  connect(mapStateToProps, { authUser, removeError })(Main)
-);
+export default connect(mapStateToProps, { authUser, removeError })(Main);
