@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
-    "axios": "^0.27.2",
+    "axios": "^0.30.2",
     "dayjs": "^1.11.5",
     "http-proxy-middleware": "^2.0.6",
     "jwt-decode": "^3.1.2",
