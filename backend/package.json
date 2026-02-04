@@ -28,6 +28,6 @@
     "express": "^4.18.1",
     "http-proxy-middleware": "^2.0.6",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^5.9.25"
+    "mongoose": "^6.13.6"
   }
 }
